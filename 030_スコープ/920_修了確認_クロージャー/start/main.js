@@ -17,23 +17,21 @@
  */
 function calcFactory(num) {
   function plus(value) {
+    console.log(`${num} + ${value} = ${num + value}`);
     num = num + value;
-    console.log(num);
   }
 
   function minus(value) {
+    console.log(`${num} - ${value} = ${num - value}`)
     num = num - value;
-    console.log(num);
   }
-
   function multiply(value) {
+    console.log(`${num} * ${value} = ${num * value}`)
     num = num * value;
-    console.log(num);
   }
-
   function divide(value) {
+    console.log(`${num} / ${value} = ${num / value}`)
     num = num / value;
-    console.log(num);
   }
 
   let calc = {
@@ -42,10 +40,8 @@ function calcFactory(num) {
     multiply,
     divide
   }
-
   return calc;
 }
-
 
  const calc = calcFactory(10); // 初期値を10として設定
  calc.plus(5);      // 出力結果 "10 + 5 = 15"

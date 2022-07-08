@@ -3,7 +3,8 @@
  * クロージャーの問題で作成した以下のcalcFactoryを即時関数
  * で書き直してみてください。
  */
-const calc = (function calcFactory(val){
+const calc =
+(function calcFactory(val) {
     return {
         plus: function(target) {
             const newVal = val + target;
@@ -27,6 +28,7 @@ const calc = (function calcFactory(val){
         },
     }
 })(10);
+
 calc.plus(5);
 calc.minus(3);
 calc.multiply(3);
