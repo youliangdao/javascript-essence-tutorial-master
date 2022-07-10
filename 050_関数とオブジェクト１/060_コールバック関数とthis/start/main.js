@@ -7,3 +7,8 @@ const person = {
     }
 }
 person.hello();
+
+function fn(ref) {
+    ref();
+}
+fn(person.hello);
