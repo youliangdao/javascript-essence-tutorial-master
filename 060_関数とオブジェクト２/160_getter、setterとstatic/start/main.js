@@ -1,14 +1,22 @@
 function Person1(name, age) {
 	this._name = name;
 	this._age = age;
+	this.hello = function () {
+		console.log("hello");
+	}
 }
 
 Person1.hello = function () {
 	console.log("hello");
 }
 
+Person1.prototype.hello = function () {
+	console.log("hello");
+}
+
 Object.defineProperty(Person1.prototype, "name", {
 	get: function () {
+		console.log("hello")
 		console.log("hello")
 		return this._name;
 	},
@@ -19,6 +27,7 @@ Object.defineProperty(Person1.prototype, "name", {
 
 const p1 = new Person1("Bob", 18);
 p1.name = "John"
+// console.log(p1.name);
 
 class Person2 {
 	constructor (name, age) {
@@ -27,11 +36,12 @@ class Person2 {
 	}
 
 	get name() {
-		console.log("hello")
+		console.log("hello");
 		return this._name;
 	}
-	set name(val){
-		this._name = val;
+
+	set name(name) {
+		this._name = name;
 	}
 
 	static hello(){
@@ -40,6 +50,7 @@ class Person2 {
 }
 
 const p2 = new Person2("Bob", 20);
-
+p2.name = "John";
+console.log(p2.name)
 
 Person2.hello();
