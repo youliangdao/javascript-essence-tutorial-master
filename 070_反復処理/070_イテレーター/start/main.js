@@ -31,4 +31,4 @@ for (const i of obj) {
   console.log(i);
 }
 
-const s = new Map(obj);
+const s = new Set(obj);
