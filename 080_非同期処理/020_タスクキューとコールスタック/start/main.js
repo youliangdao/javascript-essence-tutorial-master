@@ -9,7 +9,9 @@ function a() {
     }, 4000);
 
     const startTime = new Date();
-    while (new Date() - startTime < 5000);
+    while (new Date() - startTime < 7000);
 
     console.log('fn a done');
 }
+
+a();
