@@ -8,10 +8,6 @@ new Promise(function(resolve, reject) {
   console.log("then:" + name);
   // throw new Error();
   return name;
-}).then(function (name) {
-  console.log("then:" + name);
-}).catch(function (name) {
-  console.log("catch:" + name);
 }).finally(function (name) {
   console.log("finally:" + name);
 })
