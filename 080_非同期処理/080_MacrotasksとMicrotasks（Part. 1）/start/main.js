@@ -9,4 +9,4 @@ new Promise(function promise(resolve) {
   console.log('job1');
 });
 
-console.log('global end');
+console.log('global end');;

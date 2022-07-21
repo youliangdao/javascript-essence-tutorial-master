@@ -7,14 +7,32 @@ function sleep(val) {
   });
 }
 
-sleep(0).then(function(val) {
-  return sleep(val);
-}).then(function(val) {
-  return sleep(val);
-}).then(function(val) {
-  return sleep(val);
-}).then(function(val) {
-  return sleep(val);
-}).then(function(val) {
-  return sleep(val);
+async function init() {
+  let val = await sleep(0);
+  val = await sleep(val);
+  val = await sleep(val);
+  val = await sleep(val);
+  val = await sleep(val);
+  val = await sleep(val);
+  val = await sleep(val);
+  throw new Error();
+  return val;
+}
+
+// sleep(0).then(function(val) {
+//   return sleep(val);
+// }).then(function(val) {
+//   return sleep(val);
+// }).then(function(val) {
+//   return sleep(val);
+// }).then(function(val) {
+//   return sleep(val);
+// }).then(function(val) {
+//   return sleep(val);
+// })
+
+init().then(function (val) {
+  console.log("hello " + val);
+}).catch(function () {
+  console.log("error");
 })
