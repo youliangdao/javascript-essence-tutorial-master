@@ -3,7 +3,7 @@ function sleep(val) {
     setTimeout(function() {
       console.log(val++);
       resolve(val);
-    }, 1000);
+    },  1000);
   });
 }
 
@@ -33,6 +33,6 @@ async function init() {
 
 init().then(function (val) {
   console.log("hello " + val);
-}).catch(function () {
-  console.log("error");
+}).catch(function (e) {
+  console.error(e);
 })
