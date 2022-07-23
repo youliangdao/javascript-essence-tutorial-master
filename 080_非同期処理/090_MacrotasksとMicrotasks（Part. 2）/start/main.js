@@ -5,10 +5,12 @@ new Promise(function promise(resolve) {
     console.log('task1');
     resolve();
   });
+
   setTimeout(function task2() {
     console.log("task2");
 
     const p = Promise.resolve();
+    console.log(p)
     p.then(function job4() {
       console.log("job4")
     })
