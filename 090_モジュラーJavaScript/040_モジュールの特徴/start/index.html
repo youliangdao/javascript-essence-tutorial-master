@@ -8,13 +8,22 @@
 </head>
 
 <body>
-    <script>
+    <!-- <script src="main.js" defer></script>
+    <script src="main.js" defer></script>
+    <script src="main.js" defer></script> -->
+
+    <!-- <script>
         const span = document.createElement('span');
         span.textContent = decodeURI(window.location.pathname);
         document.body.appendChild(span);
-    </script>
+    </script> -->
+    <script type="module" src="moduleB.js"></script>
+    <script type="module" src="moduleB.js"></script>
+    <script type="module" src="moduleB.js"></script>
+    <script nomodule>alert("nomodule")</script>
+
     <h2>編集用ファイル</h2>
-    <a href="../end" style="font-weight: 600; color: red;">
+    <!-- <a href="../end" style="font-weight: 600; color: red;">
         完成ファイルへ
     </a>
 
@@ -26,9 +35,7 @@
         <a href="../../../">
             コースへ
         </a>
-    </div>
-    <script src="main.js" defer></script>
-    <script type="module" src="moduleB.js"></script>
+    </div> -->
 </body>
 
 </html>
