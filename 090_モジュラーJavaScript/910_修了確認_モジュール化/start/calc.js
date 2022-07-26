@@ -3,11 +3,8 @@
  * 以下の即時関数をモジュール化してください。
  * ※calcオブジェクトはmain.js内で行い、実行してください。
  */
-const calc = (function() {
-
-    let val = 0;
-
-    return {
+let val = 0;
+export default {
         plus: function(target) {
             const newVal = val + target;
             console.log(`${val} + ${target} = ${newVal}`);
@@ -27,7 +24,5 @@ const calc = (function() {
             const newVal = val / target;
             console.log(`${val} / ${target} = ${newVal}`);
             val = newVal;
-        },
+        }
     }
-})();
-
