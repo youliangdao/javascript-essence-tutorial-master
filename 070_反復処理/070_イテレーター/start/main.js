@@ -1,17 +1,15 @@
 function genIterator(max = 10) {
   let i = 0;
-
   return {
     next: function () {
       if (i >= max) {
         return {
           done: true
         }
-      } else {
-        return {
-          done: false,
-          value: i++
-        }
+      }
+      return {
+        done: false,
+        value: i++
       }
     }
   }
@@ -19,16 +17,19 @@ function genIterator(max = 10) {
 
 // const it = genIterator(5);
 // let a = it.next();
+// console.log(a);
 // while (!a.done) {
 //   console.log(a.value);
 //   a = it.next();
 // }
-
-const obj = {
-  [Symbol.iterator]: genIterator.bind(null, 5)
+const obj1 = {
+  [Symbol.iterator] : genIterator.bind(null, 5)
 }
-for (const i of obj) {
-  console.log(i);
+const obj2 = Object.create(obj1)
+obj2.prop1 = 1;
+obj2.prop2 = 2;
+for (const i of obj2) {
+  console.log(i)
 }
 
-const s = new Set(obj);
+const set = new Set(obj2);
