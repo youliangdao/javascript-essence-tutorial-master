@@ -22,8 +22,9 @@ function genIterator(max = 10) {
 //   console.log(a.value);
 //   a = it.next();
 // }
+
 const obj1 = {
-  [Symbol.iterator] : genIterator.bind(null, 5)
+  [Symbol.iterator] : genIterator
 }
 const obj2 = Object.create(obj1)
 obj2.prop1 = 1;
@@ -31,5 +32,4 @@ obj2.prop2 = 2;
 for (const i of obj2) {
   console.log(i)
 }
-
 const set = new Set(obj2);

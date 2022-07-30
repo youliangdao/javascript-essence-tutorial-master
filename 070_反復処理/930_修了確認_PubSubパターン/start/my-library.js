@@ -49,6 +49,5 @@ class MyLibrary {
 		events.emit('afterInit');
 	}
 	method() {
-
 	}
 }

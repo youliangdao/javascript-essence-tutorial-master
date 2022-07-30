@@ -1,36 +1,21 @@
-// function* gen() {
-//   yield 1;
-//   yield 2;
-//   return 3;
+
+
+// let a = genIterator(5);
+// let obj = a.next();
+// while (!obj.done) {
+//   console.log(obj.value)
+//   obj = a.next();
 // }
 
-// const it = gen();
-// console.log(it.next())
-// console.log(it.next())
-// console.log(it.next())
-// console.log(it.next())
-// console.log(it.next())
-
-function* genIterator(max = 10) {
-  let i = 0;
-
-  while (i < max) {
-    yield i++;
+const obj = {
+  *[Symbol.iterator](max = 10) {
+      let i = 0;
+      while (i < max) {
+      yield i++;
+    }
+    return;
   }
-  return;
 }
-
-const it = genIterator(5);
-let a = it.next();
-while (!a.done) {
-  console.log(a.value);
-  a = it.next();
-}
-
-// object = {
-//   [Symbol.iterator]: genIterator
-// }
-
-for (const i of genIterator()) {
-  console.log(i);
+for (const i of obj) {
+  console.log(i)
 }

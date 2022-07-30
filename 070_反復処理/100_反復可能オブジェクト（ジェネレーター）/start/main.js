@@ -1,23 +1,37 @@
 const items = {
 	prop1: 'value1',
 	prop2: 'value2',
-	prop3: 'value3'
-}
-
-Object.prototype[Symbol.iterator] = function* () {
-	// const keys = Object.keys(this);
-	// let i = 0;
-	// let _this = this;
-	// while (i < keys.length) {
-	// 	yield [keys[i], _this[keys[i]]];
-	// 	i++;
-	// }
-	// return
-	for(let key in this) {
-		yield [key, this[key]];
+	prop3: 'value3',
+	*[Symbol.iterator]() {
+		// let i = 0;
+		// let keys = Object.keys(this);
+		// while (i < keys.length) {
+		// 	let key = keys[i++];
+		// 	yield [key, this[key]]
+		// }
+		for (const key in this) {
+			yield [key, this[key]]
+		}
 	}
 }
 
-for (const [k, v] of items) {
-	console.log(k, v);
+// Object.prototype[Symbol.iterator] = function () {
+// 	let i = 0;
+// 	let _this = this;
+// 	let keys = Object.keys(this);
+// 	return {
+// 		next: function () {
+// 			let key = keys[i++];
+// 			return {
+// 				done: i > keys.length,
+// 				value: [key, _this[key]]
+// 			}
+// 		}
+// 	}
+// }
+
+
+
+for (const item of items) {
+	console.log(item);
 }

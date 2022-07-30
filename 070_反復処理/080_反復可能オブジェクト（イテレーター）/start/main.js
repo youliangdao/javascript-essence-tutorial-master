@@ -1,15 +1,17 @@
-const items = {
+const obj = {
 	prop1: 'value1',
 	prop2: 'value2',
 	prop3: 'value3'
 }
+// const items = Object.entries(obj);
+// console.log(items)
 
 Object.prototype[Symbol.iterator] = function () {
-	const keys = Object.keys(this);
 	let i = 0;
+	let keys = Object.keys(this);
 	let _this = this;
 	return {
-		next() {
+		next: function () {
 			let key = keys[i++];
 			return {
 				value: [key, _this[key]],
@@ -18,19 +20,6 @@ Object.prototype[Symbol.iterator] = function () {
 		}
 	}
 }
-
-// const items = Object.entries(obj);
-for (const item of items) {
-	console.log(item)
+for (const [k, v] of obj) {
+	console.log(k, v)
 }
-
-			// if (i >= keys.length) {
-			// 	return {
-			// 		done: true
-			// 	}
-			// } else {
-			// 	return {
-			// 		done: false,
-			// 		value: items[keys[i++]]
-			// 	}
-			// }
