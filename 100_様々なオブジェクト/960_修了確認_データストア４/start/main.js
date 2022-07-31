@@ -17,8 +17,8 @@ import { createStore  } from "./store.js";
 
 	const store = await createStore(KEY);
 	console.log('init', store);
-	pxy.name = 'Tom';
+	store.name = 'Tom';
 	console.log('change', store);
-	pxy.name = 'Tim';
+	store.name = 'Tim';
 	console.log('change2', store);
 })();
