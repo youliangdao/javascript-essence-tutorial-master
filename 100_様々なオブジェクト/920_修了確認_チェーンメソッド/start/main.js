@@ -26,6 +26,39 @@ class IteratableObject {
 		return this;
 	}
 
+	set(key, value) {
+		this[key] = value;
+		return this;
+	}
+
+	filter(fn) {
+		let obj = {}
+		for (const key in this) {
+			if (fn(this[key], key)) {
+				obj.key = this[key]
+			}
+		}
+		return obj;
+	}
+
+	forEach(fn) {
+		for (const [k, v] of this) {
+			fn(v, k, this)
+		}
+	}
+
+	map(fn) {
+		for (const key in this) {
+			this[key] = fn(this[key], key, this)
+		}
+		return this;
+	}
+
+	*[Symbol.iterator] () {
+		for (const key in this) {
+			yield [key, this[key]];
+		}
+	}
 }
 
 function prefix(v, i, obj) {
@@ -38,6 +71,13 @@ const original = new IteratableObject({
 	key3: 'value3',
 });
 
+for (const [k, v] of original) {
+	console.log(k, v);
+}
+
+original.forEach(v => {
+	console.log(v);
+})
 // const result = original
 // 	.map(prefix)
 // 	.set('key4', 'value4')
@@ -45,8 +85,8 @@ const original = new IteratableObject({
 // 		return key === 'key4';
 // 	});
 
-// console.log('%coriginal', 'color: blue; font-weight: bold;', original);
-// console.log('%cresult', 'color: red; font-weight: bold;', result);
+console.log('%coriginal', 'color: blue; font-weight: bold;', original);
+console.log('%cresult', 'color: red; font-weight: bold;', result);
 /**
  * 期待する出力結果
  * original

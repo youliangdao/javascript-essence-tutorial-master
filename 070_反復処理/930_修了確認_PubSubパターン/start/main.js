@@ -12,7 +12,6 @@ function customFn2() {
 function customFn3() {
 	console.log('customFn3');
 }
-
 events.on('beforeInit', customFn1);
 events.on('beforeInit', customFn2);
 events.on('afterInit', customFn3);
